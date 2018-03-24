@@ -4,7 +4,11 @@
   "description": "test 1",
   "main": "basic_server.js",
   "scripts": {
-¸    "test": "npx babel-watch basic_server.js"
+    "comment": "RUN THE COMMANDS BELOW WITH $ npm run <script>",
+    "start": "node basic_server.js > out.log",
+    "watch": "npx babel-watch -I -w ./ src/basic_server.js",
+    "build": "babel src -d ./",
+    "siege": "siege -b -c 100 -r 500 -f ./siege_urls.txt"
   },
   "keywords": [
     "test"
