@@ -9,6 +9,8 @@ const test = fs.readFileSync('templates/test.html');
 
 let app = express();
 
+app.
+
 app.get('/',function(req,res){
     console.log('here in index we are');
     res.writeHead(200,{'Content-Type':'text/html'});
