@@ -1,15 +1,19 @@
-// const http = require('http');
 import http from 'http';
 import fs from 'fs';
 import express from 'express';
-import api from '../routes/api';
+import api from './routes/api';
+import fetchingwiki from "./routes/fetch";
+import path from 'path';
 
 const index = fs.readFileSync('templates/index.html');
 const test = fs.readFileSync('templates/test.html');
 
 let app = express();
 
-app.
+// view engine setup
+app.set('views', path.join(__dirname, '../views'));
+app.set('view engine', 'twig');
+
 
 app.get('/',function(req,res){
     console.log('here in index we are');
@@ -26,5 +30,6 @@ app.get('/test',function (req, res) {
 });
 
 app.use('/api',api);
+app.use('/fetch', fetchingwiki );
 
 app.listen(1235);

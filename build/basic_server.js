@@ -12,6 +12,14 @@ var _express = require('express');
 
 var _express2 = _interopRequireDefault(_express);
 
+var _api = require('./routes/api');
+
+var _api2 = _interopRequireDefault(_api);
+
+var _fetch = require('./routes/fetch');
+
+var _fetch2 = _interopRequireDefault(_fetch);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var index = _fs2.default.readFileSync('templates/index.html'); // const http = require('http');
@@ -33,4 +41,6 @@ app.get('/test', function (req, res) {
     res.end(test);
 });
 
+app.use('/api', _api2.default);
+app.use('/fetch', _fetch2.default);
 app.listen(1235);
