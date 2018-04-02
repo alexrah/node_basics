@@ -7,7 +7,7 @@
   "scripts": {
     "comment": "RUN THE COMMANDS BELOW WITH $ npm run <script>",
     "start": "node build/basic_server.js | gawk '{ print strftime(\"%Y-%m-%d %H:%M:%S: \"), $0; fflush(); }'> out.log",
-    "watch": "npx babel-watch -I src/basic_server.js",
+    "watch": "npx babel-watch -I -w views src/basic_server.js",
     "build": "babel src -d build",
     "siege": "siege -b -c 100 -r 500 -f ./siege_urls.txt"
   },
