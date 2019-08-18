@@ -1,9 +1,5 @@
 'use strict';
 
-var _http = require('http');
-
-var _http2 = _interopRequireDefault(_http);
-
 var _fs = require('fs');
 
 var _fs2 = _interopRequireDefault(_fs);
@@ -20,13 +16,23 @@ var _fetch = require('./routes/fetch');
 
 var _fetch2 = _interopRequireDefault(_fetch);
 
+var _path = require('path');
+
+var _path2 = _interopRequireDefault(_path);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var index = _fs2.default.readFileSync('templates/index.html'); // const http = require('http');
+var index = _fs2.default.readFileSync('templates/index.html'); // import http from 'http';
 
 var test = _fs2.default.readFileSync('templates/test.html');
 
+//test test test test again test and test
+
 var app = (0, _express2.default)();
+
+// view engine setup
+app.set('views', _path2.default.join(__dirname, '../views'));
+app.set('view engine', 'twig');
 
 app.get('/', function (req, res) {
     console.log('here in index we are');
@@ -43,4 +49,6 @@ app.get('/test', function (req, res) {
 
 app.use('/api', _api2.default);
 app.use('/fetch', _fetch2.default);
+// app.use('/pdf', fetchingwiki );
+
 app.listen(1235);
