@@ -18,7 +18,7 @@ exports.fetchWikiTitle = function(req, res){
     }).then((myContent) => {
         // res.writeHead(200, {'Content-Type': 'text/html'});
         // res.end(myContent.join());
-        res.render('fetch/wiki',{ contents: myContent})
+        res.render('fetch/wiki',{ contents: myContent, title: "Fetch from Wikipedia"})
     }).catch((err) => {
         console.error(err);
     });
